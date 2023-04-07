@@ -47,11 +47,11 @@ def krm(A, R, m="3x3"):
         return "Det(A)=0"
 
 
-a = [4, -3, 2, 2, 5, -3, 5, 6, -2]
-b = [9, 4, 18]
+a = []
+b = []
 
 
-x = krm(a, b, m="3x3")
+x = krm(a, b, m="4x4")
 
 if len(x) == 3:
     print(f"""x = {x[0]}
