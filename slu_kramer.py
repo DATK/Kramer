@@ -38,6 +38,8 @@ def krm(A, R):
                   A[3], A[4], R[1],
                   A[6], A[7], R[2]]
             x = [(det(A1)/detA), (det(A2)/detA), (det(A3)/detA)]
+        elif lenM == 1:
+            x = [R[0]/A[0]]
         elif lenM == 16:
             A1 = [R[0], A[1], A[2], A[3],
                   R[1], A[5], A[6], A[7],
@@ -83,8 +85,11 @@ z = {x[2]}""")
 elif len(x) == 2:
     print(f"""x = {x[0]}
 y = {x[1]}""")
+elif len(x)==1:
+    print(f"x = {x[0]}")
 else:
     print(f"""x = {x[0]}
 y = {x[1]}
 z = {x[2]}
 t = {x[3]}""")
+    
