@@ -30,7 +30,7 @@ def krm(A, R):
         if lenM == 9:
             A1 = [R[0], A[1], A[2],
                   R[1], A[4], A[5],
-                  R[2], A[8], A[8]]
+                  R[2], A[7], A[8]]
             A2 = [A[0], R[0], A[2],
                   A[3], R[1], A[5],
                   A[6], R[2], A[8]]
@@ -38,6 +38,7 @@ def krm(A, R):
                   A[3], A[4], R[1],
                   A[6], A[7], R[2]]
             x = [(det(A1)/detA), (det(A2)/detA), (det(A3)/detA)]
+            print(A1,A2,A3)
         elif lenM == 1:
             x = [R[0]/A[0]]
         elif lenM == 16:
@@ -72,9 +73,10 @@ def krm(A, R):
         return "Det(A)=0"
 
 
-a = []
-b = []
+a = [4,-3,2,2,5,-3,5,6,-2]
+b = [9,4,18]
 
+print(det(a))
 
 x = krm(a, b)
 
