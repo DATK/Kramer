@@ -76,7 +76,6 @@ a = []
 b = []
 
 
-
 x = krm(a, b)
 
 if len(x) == 3:
@@ -86,11 +85,14 @@ z = {x[2]}""")
 elif len(x) == 2:
     print(f"""x = {x[0]}
 y = {x[1]}""")
-elif len(x)==1:
+elif len(x) == 1:
     print(f"x = {x[0]}")
+elif x == "Error":
+    print("Error")
+elif x == "Det(A)=0":
+    print("Det(A)=0")
 else:
     print(f"""x = {x[0]}
 y = {x[1]}
 z = {x[2]}
 t = {x[3]}""")
-    
