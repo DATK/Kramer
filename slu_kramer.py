@@ -15,15 +15,22 @@ def det(A):
         return "No"
 
 
-def krm(A, R, m="3x3"):
+def krm(A, R):
     detA = det(A)
     if detA != 0:
-        if m == "3x3":
-            A1 = [R[0], A[1], A[2], R[1], A[4], A[5], R[2], A[8], A[8]]
-            A2 = [A[0], R[0], A[2], A[3], R[1], A[5], A[6], R[2], A[8]]
-            A3 = [A[0], A[1], R[0], A[3], A[4], R[1], A[6], A[7], R[2]]
+        lenM=len(A)
+        if lenM==9:
+            A1 = [R[0], A[1], A[2],
+                  R[1], A[4], A[5],
+                  R[2], A[8], A[8]]
+            A2 = [A[0], R[0], A[2],
+                  A[3], R[1], A[5],
+                  A[6], R[2], A[8]]
+            A3 = [A[0], A[1], R[0],
+                  A[3], A[4], R[1],
+                  A[6], A[7], R[2]]
             x = [(det(A1)/detA), (det(A2)/detA), (det(A3)/detA)]
-        elif m == "4x4":
+        elif lenM==16:
             A1 = [R[0], A[1], A[2], A[3],
                   R[1], A[5], A[6], A[7],
                   R[2], A[9], A[10], A[11],
@@ -42,21 +49,31 @@ def krm(A, R, m="3x3"):
                   A[12], A[13], A[14], R[3]]
             x = [(det(A1)/detA), (det(A2)/detA),
                  (det(A3)/detA), (det(A4)/detA)]
+        elif lenM==4:
+            A1=[R[0],A[1],
+                R[1],A[3]]
+            A2=[A[0],R[0],
+                A[2],R[1]]
+            x=[det(A1)/detA,det(A2)/detA]
         return x
+    
     else:
         return "Det(A)=0"
 
 
-a = []
-b = []
+a = [1,3,5,7,3,5,7,1,5,7,1,3,7,1,3,5]
+b = [12,0,4,16]
 
 
-x = krm(a, b, m="4x4")
+x = krm(a, b)
 
 if len(x) == 3:
     print(f"""x = {x[0]}
 y = {x[1]}
 z = {x[2]}""")
+elif len(x)==2:
+    print(f"""x = {x[0]}
+y = {x[1]}""")    
 else:
     print(f"""x = {x[0]}
 y = {x[1]}
