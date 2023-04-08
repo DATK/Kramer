@@ -55,6 +55,8 @@ def krm(A, R):
             A2=[A[0],R[0],
                 A[2],R[1]]
             x=[det(A1)/detA,det(A2)/detA]
+        else:
+            return "Error"
         return x
     
     else:
